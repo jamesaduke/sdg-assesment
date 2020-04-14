@@ -20,3 +20,10 @@ def estimator(data):
             days = time_to_elapse * 30
         return days
 
+    def infected_to_date(case):
+        days = normalize_days(period_type, time_to_elapse) // 3
+        return case * (2 ** days)
+
+    def severe_infections_by_requested_time(case):
+        return 0.15 * infected_to_date(case)
+
